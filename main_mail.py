@@ -13,8 +13,6 @@ logging.basicConfig(filename='report.log', level=logging.DEBUG)
 SENDER = 'husmani@fluids.ai'
 SENDERNAME = 'forecastai.biz'
 
-RECIPIENTS  = None
-
 USERNAME_SMTP = config.email_user
 PASSWORD_SMTP = config.email_pass
 
@@ -53,7 +51,7 @@ def send_email(body, recipient) :
   #stmplib docs recommend calling ehlo() before & after starttls()
   server.ehlo()
   server.login(USERNAME_SMTP, PASSWORD_SMTP)
-  server.sendmail(SENDER, RECIPIENTS, msg.as_string())
+  server.sendmail(SENDER, recipient, msg.as_string())
   server.close()
   
   return BODY_HTML
