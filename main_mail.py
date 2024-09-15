@@ -54,7 +54,7 @@ def send_email(body, recipient) :
     #stmplib docs recommend calling ehlo() before & after starttls()
     server.ehlo()
     server.login(USERNAME_SMTP, PASSWORD_SMTP)
-    server.sendmail(SENDER, RECIPIENTS.split(';'), msg.as_string())
+    server.sendmail(SENDER, RECIPIENTS, msg.as_string())
     server.close()
   # Display an error message if something goes wrong.
   except Exception as e:
