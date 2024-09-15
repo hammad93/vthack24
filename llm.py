@@ -1,7 +1,8 @@
 import os
 import requests
+from . import config
 # Configuration
-API_KEY = "YOUR_API_KEY"
+API_KEY = config.OPENAI_KEY
 headers = {
     "Content-Type": "application/json",
     "api-key": API_KEY,

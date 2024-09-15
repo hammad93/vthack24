@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from . import llm
 from . import main_mail
+from . import images
 app = FastAPI()
 
 
@@ -27,3 +28,7 @@ def send_mail(body, recipient):
 @app.get("/chat")
 def api_chat(q):
     return llm.chat(q)
+
+@app.get("/image")
+def image(q):
+    return images.generate(q)
