@@ -12,7 +12,12 @@ def report(data):
     '''
     Generates the email report based on the data
     '''
-    return 0
+    query = f'''{data}
+    Based on the above data about a user's location and weather data from the National Weather Service,
+    please generate a HTML email report which includes information about any alerts.
+    '''
+    result = llm.chat(query)
+    return result['choices'][0]['message']['content']
 
 @app.get("/chat")
 def api_chat(q):
