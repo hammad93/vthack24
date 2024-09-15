@@ -30,4 +30,4 @@ def api_chat(q):
 
 @app.get("/image")
 def image(q):
-    return images.generate(f"What it looks like out a window when it's {q}")
+    return images.generate(f"A nature portrait describing {q}")
