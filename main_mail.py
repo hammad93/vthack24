@@ -47,19 +47,13 @@ def send_email(body, recipient) :
   # Try to send the messages to the recipients
   # RECIPIENTS must be comma separated
   msg['To'] = recipient
-  try:
-    server = smtplib.SMTP(HOST, PORT)
-    server.ehlo()
-    server.starttls()
-    #stmplib docs recommend calling ehlo() before & after starttls()
-    server.ehlo()
-    server.login(USERNAME_SMTP, PASSWORD_SMTP)
-    server.sendmail(SENDER, RECIPIENTS, msg.as_string())
-    server.close()
-  # Display an error message if something goes wrong.
-  except Exception as e:
-    print ("Error: ", e)
-  else:
-    print (f"Email sent to {RECIPIENTS}")
+  server = smtplib.SMTP(HOST, PORT)
+  server.ehlo()
+  server.starttls()
+  #stmplib docs recommend calling ehlo() before & after starttls()
+  server.ehlo()
+  server.login(USERNAME_SMTP, PASSWORD_SMTP)
+  server.sendmail(SENDER, RECIPIENTS, msg.as_string())
+  server.close()
   
   return BODY_HTML
