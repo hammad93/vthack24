@@ -18,7 +18,7 @@ def report(data):
     From the above data about weather please generate a HTML email report. Provide nothing but the HTML code.
     '''
     result = llm.chat(query)
-    return result['choices'][0]['message']['content'].replace('\\n', '').replace('```', '')
+    return result['choices'][0]['message']['content'].replace('\n', '').replace('```', '')
 
 @app.get("/email")
 def send_mail(body, recipient):
