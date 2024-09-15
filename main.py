@@ -16,4 +16,4 @@ def report(data):
 
 @app.get("/chat")
 def api_chat(q):
-    return llm.chat(query)
+    return llm.chat(q)
