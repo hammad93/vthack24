@@ -26,8 +26,6 @@ PORT = config.email_port
 SUBJECT = 'forecastai.biz Notification'
 
 def send_email(body, recipient) :
-  # get current forecasts to report
-  current_forecasts = requests.get(config.current_forecasts_api).json()
   BODY_HTML = body
   # Create message container - the correct MIME type is multipart/alternative.
   msg = MIMEMultipart('alternative')
