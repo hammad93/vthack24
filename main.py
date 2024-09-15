@@ -11,7 +11,7 @@ def hello():
 
 @app.get("/")
 def send_report(data, recipient):
-        query = f'''{data}
+    query = f'''{data}
     From the above data about weather please generate a HTML email report. Provide nothing but the HTML code.
     '''
     result = llm.chat(query)
