@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from . import llm
+from . import main_mail
 app = FastAPI()
 
 
@@ -18,6 +19,10 @@ def report(data):
     '''
     result = llm.chat(query)
     return result['choices'][0]['message']['content']
+
+@app.get("/email")
+def send_mail(body):
+    return main_mail.send_email(body)
 
 @app.get("/chat")
 def api_chat(q):
