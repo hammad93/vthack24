@@ -15,8 +15,7 @@ def report(data):
     Generates the email report based on the data
     '''
     query = f'''{data}
-    Based on the above data about a user's location and weather data from the National Weather Service,
-    please generate a HTML email report which includes information about any alerts.
+    From the above data about weather please generate a HTML email report. Provide nothing but the HTML code.
     '''
     result = llm.chat(query)
     return result['choices'][0]['message']['content']
@@ -31,4 +30,4 @@ def api_chat(q):
 
 @app.get("/image")
 def image(q):
-    return images.generate(q)
+    return images.generate(f"What it looks like out a window when it's {q}")
