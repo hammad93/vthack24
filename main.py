@@ -21,8 +21,8 @@ def report(data):
     return result['choices'][0]['message']['content']
 
 @app.get("/email")
-def send_mail(body):
-    return main_mail.send_email(body)
+def send_mail(body, recipient):
+    return main_mail.send_email(body, recipient)
 
 @app.get("/chat")
 def api_chat(q):
