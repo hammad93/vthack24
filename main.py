@@ -16,7 +16,7 @@ def send_report(data, recipient):
     '''
     result = llm.chat(query)
     report = result['choices'][0]['message']['content'].replace('\n', '').replace('```', '')
-    img_url = images.generate(f"A nature portrait describing {q}")
+    img_url = images.generate(f"A nature portrait describing {data}")
     imag_tag = f'<img src="{img_url}"><br/>'
     main_mail.send_email(image_tag + report, recipient)
 
