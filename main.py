@@ -9,7 +9,7 @@ app = FastAPI()
 def hello():
     return {"Hello": "World"}
 
-@app.get("/")
+@app.get("/send_report")
 def send_report(data, recipient):
     query = f'''{data}
     From the above data about weather please generate a HTML email report. Provide nothing but the HTML code.
